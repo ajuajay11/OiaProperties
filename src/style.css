@@ -2,6 +2,8 @@
   --template-color-1: #fff;
   --template-color-2: #000000;
   --template-color-3: #999999;
+  --template-color-4: #000000;
+  --template-color-5: #ffffff;
   --template-main_color: #08888c;
 }
 
@@ -10,15 +12,40 @@
   --template-color-1: #fff;
   --template-color-2: #000000;
   --template-color-3: #999999;
+  --template-color-4: #000000;
+  --template-color-5: #ffffff;
   --template-main_color: #08888c;
 }
-
-html,
 body {
-  height: 100%;
+  overflow: hidden !important;
+  font-family: "Montserrat", sans-serif;
 }
-body {
-  padding: 0;
-  margin: 0;
+
+html {
+  overflow: hidden !important;
+}
+ .scroll-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+}
+
+.scroll-wrapper > * {
+  overflow: visible;
+}
+
+.clr_one{
+  color: var(--template-main_color);
+}
+.clr_two{
+  color: var(--template-color-2);
+}
+.clr_three{
+  color: var(--template-color-3);
+}
+.cursor{
+  cursor: pointer;
 }

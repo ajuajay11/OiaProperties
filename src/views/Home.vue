@@ -1,16 +1,13 @@
 <template>
-   
-        <section class="section hero">Hero</section>
-        <section id="about" class="section">About</section>
-        <section class="section">Services</section>
+    <Hero/>
 </template>
 
-<script>
-    export default {
-        
-    }
+<script setup>
+    import Hero from "../components/homesection/sections/Hero.vue"
 </script>
-
-<style lang="scss" scoped>
-
+ 
+<style>
+    section{
+        height: 100vh;
+    }
 </style>

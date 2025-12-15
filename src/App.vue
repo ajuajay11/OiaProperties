@@ -1,28 +1,25 @@
 <template>
-   <Suspense>
-    <template #default>
-      <main>
-       <router-view/>
-      </main>
-    </template>
-    <template #fallback>
-      <Preloader />
-    </template>
-  </Suspense>
-  
+  <div class="scroll-wrapper">
+    <router-view />
+  </div>
 </template>
 
-<script>
- import Preloader from './components/Preloader.vue'
- 
-</script>
+<script setup>
+import { onMounted, onUnmounted } from 'vue';
+import Lenis from 'lenis';
 
-<style>
-.section {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-}
-</style>
+let lenis = null;
+
+onMounted(() => {
+  lenis = new Lenis({
+    autoRaf: true,
+  });
+  
+  // Make it globally accessible if needed
+  window.lenis = lenis;
+});
+
+onUnmounted(() => {
+  lenis?.destroy();
+});
+</script>

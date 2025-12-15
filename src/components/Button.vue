@@ -1,6 +1,6 @@
 <template>
     <button class="cta">
-        <span>Hover me</span>
+        <span :class="{'text-white':color}">{{text}}</span>
         <svg width="15px" height="10px" viewBox="0 0 13 10">
             <path d="M1,5 L11,5"></path>
             <polyline points="8 1 12 5 8 9"></polyline>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-
+    props:['text','color']
 }
 </script>
 
@@ -32,7 +32,7 @@ export default {
     left: 0;
     display: block;
     border-radius: 50px;
-    background: #b1dae7;
+    background: var(--template-main_color);
     width: 45px;
     height: 45px;
     transition: all 0.3s ease;
@@ -45,6 +45,7 @@ export default {
     font-weight: 700;
     letter-spacing: 0.05em;
     color: #234567;
+  
 }
 
 .cta svg {
