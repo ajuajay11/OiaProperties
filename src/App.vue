@@ -1,5 +1,6 @@
 <template>
   <div class="scroll-wrapper">
+    <Preloader />
     <router-view />
   </div>
 </template>
@@ -7,6 +8,7 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue';
 import Lenis from 'lenis';
+import Preloader from './components/Preloader.vue';
 
 let lenis = null;
 

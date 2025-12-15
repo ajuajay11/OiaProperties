@@ -6,23 +6,13 @@
         <!-- LEFT: NAV LINKS -->
         <div class="navbar navbar-expand-lg col-lg-4 col-12 px-3 justify-content-center justify-content-lg-start" >
           <ul class="navbar-nav d-flex gap-3 text-capitalize">
-            <li class="nav-item">
-              <a
-                href="#home"
-                class="nav-link"
-                :class="{ active: activeSection === 'home' }"
-                @click.prevent="scrollTo('home')"
-              >
-                Home
-              </a>
-            </li>
-
+             
             <li class="nav-item cursor">
               <span
                 class="nav-link d-flex align-items-center gap-1"
                 @click.stop="toggle = !toggle"
               >
-                All Pages
+                Home
                 <i class="bi" :class="toggle ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
               </span>
             </li>
@@ -53,17 +43,19 @@
 
         <!-- CENTER: LOGO -->
         <div class="col-lg-4 col-12 d-flex justify-content-center my-2 my-lg-0">
-          <img
-            src="../../assets/images/preloader.webp"
+          <router-link to="/">
+            <img
+            src="../../assets/images/logo.webp"
             alt="logo"
             width="90" height="90"
             class="img-fluid"
           />
+          </router-link>
         </div>
 
         <!-- RIGHT: BUTTON -->
         <div class="col-lg-4 col-12 d-flex justify-content-center justify-content-lg-end">
-          <Button text="Register Interest" />
+          <Button text="Register" @click="showRegister = true" />
         </div>
 
       </div>
@@ -126,12 +118,15 @@
       </div>
     </transition>
   </header>
+     <RegisterPopup v-if="showRegister" @close="showRegister = false" />
+
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import Button from '../Button.vue'
-
+import RegisterPopup from '../RegisterPopup.vue';
+const showRegister = ref(false);
 const toggle = ref(false)
 const activeSection = ref('home')
 

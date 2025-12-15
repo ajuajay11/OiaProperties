@@ -1,52 +1,56 @@
 <template>
     <section class="hero">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-10">
-
+            <div class="row">
+                <div class="col-12 col-lg-8">
                     <!-- Circular Badge -->
-
-
                     <!-- Main Content -->
-                    <div class="text-start text-white position-relative" data-aos="fade-down">
-                        <div class="hero-badge">
-                            <svg class="badge-circle" viewBox="0 0 120 120">
-                                <path id="circlePath" d="M 60, 60 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0"
-                                    fill="none" />
-                                <text class="badge-text">
-                                    <textPath href="#circlePath" startOffset="0%">
-                                        Fahid Island
-                                        • Abu Dhabi •
-                                    </textPath>
-                                </text>
-                            </svg>
+                    <div class="text-start " data-aos="fade-down">
+                        <span data-aos="zoom-in" style="color: #08888c !important;" class="clr_one fw-semibold bg-white px-3 p-2 rounded-4 ">Fahid
+                            Island</span>
+                        <div class="postion-relative text-white">
+                            <h1 class="fs_1 fw-semibold my-4">
+                                Exclusive Off-Plan Island <br></br>Living in Abu Dhabi
+                            </h1>
+                            <div class="hero-badge">
+                                <svg class="badge-circle" viewBox="0 0 120 120">
+                                    <path id="circlePath" d="M 60, 60 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" fill="none" />
+                                    <text class="badge-text">
+                                        <textPath href="#circlePath" startOffset="0%">
+                                            Fahid Island
+                                            • Abu Dhabi •
+                                        </textPath>
+                                    </text>
+                                </svg>
+                            </div>
                         </div>
-                        <span data-aos="zoom-in" class="clr_one fw-semibold bg-white px-3 p-2 rounded-4 ">Fahid Island:</span>
-                        <h1 class="display-1 fw-semibold my-4">
-                            Exclusive Off-Plan Island <br></br>Living in Abu Dhabi
-                        </h1>
 
                         <p class="lead mb-5">
                             Secure early access to luxury off-plan residences on Abu Dhabi’s newest residential island
                             community.
                         </p>
-                        <Button text="Register Interest" color="white" />
+                        <Button text="Register Interest" color="white" @click="showRegister = true" />
                     </div>
 
                 </div>
             </div>
         </div>
     </section>
+    <RegisterPopup v-if="showRegister" @close="showRegister = false" />
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import Button from '../../Button.vue';
+import RegisterPopup from '../../RegisterPopup.vue';
+const showRegister = ref(false)
 </script>
 
 <style scoped>
 .hero {
-    height: 65vh;
-    min-height: 940px;
+    height: 70vh;
+    min-height: 750px;
+    max-height: 100vh;
     background-image: url('@/assets/images/hero.webp');
     background-size: cover;
     background-position: center;
@@ -55,7 +59,7 @@ import Button from '../../Button.vue';
     align-items: center;
     justify-content: center;
     position: relative;
- }
+}
 
 
 .hero::after {
@@ -75,8 +79,8 @@ import Button from '../../Button.vue';
 /* Circular Badge */
 .hero-badge {
     position: absolute;
-    top: -16px;
-    right: 0%;
+    top: 10px;
+    right: 10%;
     width: 120px;
     height: 120px;
     animation: rotate 20s linear infinite;

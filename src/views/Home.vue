@@ -1,13 +1,13 @@
 <template>
-    <Hero/>
+    <Hero />
+    <About />
+    <ThreePillar />
 </template>
 
 <script setup>
-    import Hero from "../components/homesection/sections/Hero.vue"
+    import Hero from "../components/homesection/sections/Hero.vue";
+    import About from "../components/homesection/sections/About.vue";
+    import ThreePillar from "../components/homesection/sections/ThreePillar.vue";
 </script>
- 
-<style>
-    section{
-        height: 100vh;
-    }
-</style>
+
+<style></style>

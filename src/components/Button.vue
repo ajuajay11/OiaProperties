@@ -17,7 +17,6 @@ export default {
 <style scoped>
 .cta {
     position: relative;
-    margin: auto;
     padding: 12px 18px;
     transition: all 0.2s ease;
     border: none;
@@ -32,7 +31,7 @@ export default {
     left: 0;
     display: block;
     border-radius: 50px;
-    background: var(--template-main_color);
+    background: #08888cd2;
     width: 45px;
     height: 45px;
     transition: all 0.3s ease;
