@@ -1,0 +1,24 @@
+:root {
+  --template-color-1: #fff;
+  --template-color-2: #000000;
+  --template-color-3: #999999;
+  --template-main_color: #08888c;
+}
+
+/* Dark Mode Overrides */
+[data-bs-theme="dark"] {
+  --template-color-1: #fff;
+  --template-color-2: #000000;
+  --template-color-3: #999999;
+  --template-main_color: #08888c;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
