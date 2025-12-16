@@ -1,5 +1,5 @@
 <template>
-    <section class="related-projects mt-50">
+    <section class="related-projects mt-50" id="properties">
         <div class="container">
             <div class="row d-none d-md-flex">
                 <h1 class="section-title fs_1 mt-3 text-capitalize text-center"> Related Projects </h1>

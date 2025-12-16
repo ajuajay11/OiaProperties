@@ -147,4 +147,6 @@ h1, h2 {
 
  body, html {
   overflow-x: hidden;
+}.menu_active {
+  color: var(--template-main_color) !important;
 }

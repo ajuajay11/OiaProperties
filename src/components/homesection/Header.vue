@@ -13,13 +13,13 @@
             </li>
 
             <li class="nav-item">
-              <a href="#contact" class="nav-link" :class="{ active: activeSection === 'contact' }">
-                Contact
+              <a href="/#properties" class="nav-link" :class="{ menu_active: activeSection == 'properties' }">
+                Properties
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="#faq" class="nav-link" :class="{ active: activeSection === 'faq' }"> Faq </a>
+              <a href="#faq" class="nav-link" :class="{ menu_active: activeSection === 'faq' }"> Faq </a>   
             </li>
           </ul>
         </div>
@@ -39,7 +39,7 @@
       <div class="row align-items-center d-lg-none py-2 bg-white rounded-4">
 
         <div class="col-6 d-flex align-items-center">
-          <router-link to="/" class="py-2 px-4 rounded-4">
+          <router-link :to="{ name: 'Layouts' }" class="py-2 px-4 rounded-4">
             <img src="../../assets/images/logo.webp" alt="logo" width="70" height="70" class="img-fluid" />
           </router-link>
         </div>
@@ -71,7 +71,7 @@
 
                   <div class="col-md-4">
                     <ul class="dropdown-links">
-                      <li><a href="#home" @click="closeMenu">Home</a></li>
+                      <li><a :class="{ menu_active: activeSection == 'home' }" href="#home" @click="closeMenu">Home</a></li>
                       <li><a href="/services" @click="closeMenu">Services</a></li>
                       <li><a href="/reviews" @click="closeMenu">Reviews</a></li>
                     </ul>
@@ -79,7 +79,7 @@
 
                   <div class="col-md-4">
                     <ul class="dropdown-links">
-                      <li><a href="/projects" @click="closeMenu">Projects</a></li>
+                      <li><a href="/#properties" :class="{ menu_active: activeSection === 'properties' }" @click="closeMenu">Properties</a></li>
                       <li><a href="/blog" @click="closeMenu">Blog</a></li>
                       <li><a href="/career" @click="closeMenu">Career</a></li>
                     </ul>
@@ -111,19 +111,19 @@
     <div class="offcanvas-body justify-content-center d-flex flex-column">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link fs_one" @click="handleMobileNav('home')">Home</a>
+          <a href="/#home" class="nav-link fs_one" :class="{ menu_active: activeSection == 'home' }" @click="handleMobileNav('home')">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs_one" @click="handleMobileNav('about')">About</a>
+          <a href="/#about" class="nav-link fs_one" :class="{ menu_active: activeSection == 'about' }"  @click="handleMobileNav('about')">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs_one" @click="handleMobileNav('properties')">Properties</a>
+          <a href="/#properties" class="nav-link fs_one" :class="{ menu_active: activeSection == 'properties' }"  @click="handleMobileNav('properties')">Properties</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs_one" @click="handleMobileNav('location')">Location</a>
+          <a href="/#location" class="nav-link fs_one" :class="{ menu_active: activeSection == 'location' }"  @click="handleMobileNav('location')">Location</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs_one" @click="handleMobileNav('faq')">FAQ</a>
+          <a href="/#faq" class="nav-link fs_one" :class="{ menu_active: activeSection == 'faq' }"  @click="handleMobileNav('faq')">FAQ</a>
         </li>
 
       </ul>
@@ -137,22 +137,27 @@
   <RegisterPopup v-if="showRegister" @close="showRegister = false" />
 
 </template>
-
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import Button from '../Button.vue'
-import RegisterPopup from '../RegisterPopup.vue';
-const showRegister = ref(false);
+import RegisterPopup from '../RegisterPopup.vue'
+
+const showRegister = ref(false)
 const toggle = ref(false)
 const activeSection = ref('home')
 
+let observer = null
+
 const scrollTo = (id) => {
-  window.$lenis?.scrollTo(`#${id}`)
+  window.$lenis?.scrollTo(`#${id}`, {
+    offset: -130
+  })
 }
 
 const closeMenu = () => {
   toggle.value = false
 }
+
 const handleMobileNav = (id) => {
   const offcanvasEl = document.getElementById('mobileMenu')
   const instance = window.bootstrap?.Offcanvas.getInstance(offcanvasEl)
@@ -178,6 +183,35 @@ const handleMobileNav = (id) => {
   }
 }
 
+/* 🔥 ACTIVE SECTION TRACKING */
+onMounted(() => {
+  const sections = document.querySelectorAll(
+    '#home, #about, #properties, #location, #faq'
+  )
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeSection.value = entry.target.id
+        }
+      })
+    },
+    {
+      root: null,
+      threshold: 0.6,
+      rootMargin: '-130px 0px -40% 0px' // accounts for fixed header
+    }
+  )
+
+  sections.forEach((section) => observer.observe(section))
+})
+
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect()
+})
+
+/* CLICK OUTSIDE */
 const vClickOutside = {
   mounted(el, binding) {
     el._clickOutside = (e) => {
@@ -190,6 +224,7 @@ const vClickOutside = {
   }
 }
 </script>
+
 
 
 <style scoped>
