@@ -6,7 +6,7 @@
 
                     <span class="clr_one fw-semibold bg_one px-3 p-2 rounded-4"
                         style="color: #fff !important;">Faq</span>
-                    <h2 class="mt-3 faq-title text-center text-lg-start">
+                    <h2 class="mt-3 section-title text-lg-center text-lg-start">
                         Know Before <br>You Buy
                     </h2>
                     <p class="">Fahid Island is Abu Dhabi’s next flagship coastal community; wellness-focused, future-ready, and
