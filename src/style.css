@@ -21,28 +21,23 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  /* Normal scroll on mobile */
-  overflow-x: hidden;
+   overflow-x: hidden;
   overflow-y: auto;
 }
 
 html {
   scroll-behavior: smooth;
-  /* Normal scroll on mobile */
-  overflow-x: hidden;
+   overflow-x: hidden;
   overflow-y: auto;
 }
 
-/* Default: Normal scrolling */
-.scroll-wrapper {
+ .scroll-wrapper {
   width: 100%;
   min-height: 100vh;
 }
 
-/* Only apply custom scroll on desktop screens */
-@media (min-width: 992px) {
-  /* ONLY enable this if you're using a smooth scroll library like Locomotive Scroll */
-  body.use-custom-scroll {
+ @media (min-width: 992px) {
+   body.use-custom-scroll {
     overflow: hidden;
   }
   
@@ -60,8 +55,7 @@ html {
   }
 }
 
-/* Mobile: Always allow normal scrolling */
-@media (max-width: 991px) {
+ @media (max-width: 991px) {
   body, html {
     overflow-x: hidden !important;
     overflow-y: auto !important;
@@ -98,8 +92,7 @@ html {
   cursor: pointer;
 }
 
-/* fonts */
-.fs_one {
+ .fs_one {
   font-size: clamp(40px, 4vw, 65px) !important;
 }
 
@@ -148,12 +141,10 @@ h1, h2 {
   font-family: "Exo", sans-serif;
 }
 
-/* iOS momentum scrolling */
-body {
+ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Prevent horizontal scroll on all devices */
-body, html {
+ body, html {
   overflow-x: hidden;
 }

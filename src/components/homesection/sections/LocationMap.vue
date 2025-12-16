@@ -1,17 +1,27 @@
 <template>
  
-        <div class="row">
+        <div class="row" id="location" data-aos="fade-in">
             <div class="col-12">
                 <div id="map" ref="map"></div>
             </div>
         </div>
      
 </template>
-
 <script setup>
 import { onMounted, ref } from 'vue'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+
+import markerIcon from 'leaflet/dist/images/marker-icon.png'
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
+import markerShadow from 'leaflet/dist/images/marker-shadow.png'
+
+delete L.Icon.Default.prototype._getIconUrl
+L.Icon.Default.mergeOptions({
+  iconUrl: markerIcon,
+  iconRetinaUrl: markerIcon2x,
+  shadowUrl: markerShadow,
+})
 
 const map = ref(null)
 
@@ -19,11 +29,10 @@ onMounted(() => {
   const leafletMap = L.map(map.value, {
     zoomControl: true,
     scrollWheelZoom: false
-  }).setView([24.4539, 54.3773], 11) // Abu Dhabi
+  }).setView([24.4539, 54.3773], 11)
 
   L.tileLayer(
-    'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    { attribution: '' }
+    'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
   ).addTo(leafletMap)
 
   const locations = [
@@ -41,6 +50,7 @@ onMounted(() => {
   })
 })
 </script>
+
 
 <style scoped>
 .map-section {

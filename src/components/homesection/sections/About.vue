@@ -1,8 +1,8 @@
 <template>
 
-    <div class="container mt-50" id="about">
+    <section class="container mt-50" id="about">
         <div class="row w-100 py-5 mb-4">
-            <div class="col-12 col-lg-6" data-aos="fade-right">
+            <div class="col-12 col-lg-6" data-aos="fade-left" data-aos-delay="3000">
                 <div class="text-start">
                     <span class="clr_one fw-semibold bg_one px-3 p-2 rounded-4" style=" color: #fff !important;">Fahid
                         Island</span>
@@ -13,7 +13,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-12 col-lg-6" data-aos="fade-in">
+            <div class="col-12 col-lg-6" data-aos="fade-right" data-aos-delay="3000">
                 <p class="fs_5 fst-italic mb-5">
                     <span class="clr_one">Fahid Island</span>, Abu Dhabi's exclusive development by Aldar, offers a refined coastal lifestyle
                     with wellness and modern amenities. This low-density community includes residential areas,
@@ -29,7 +29,7 @@
                 <Button text="Appointment" @click="showRegister = true" />
             </div>
         </div>
-    </div>
+    </section>
     <!-- MARQUEE -->
     <div class="marquee-wrapper">
         <div class="marquee-track">

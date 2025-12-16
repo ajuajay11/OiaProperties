@@ -1,5 +1,5 @@
 <template>
-    <section class="newsreadsection mt-50">
+    <section class="newsreadsection mt-50" id="newsreadsection">
         <div class="container p-0">
             <div class="row g-4 ">
                 <h1 class="section-title fs_1 mt-3 text-center fw-semibold text-white">The Science of Fahid Living</h1>

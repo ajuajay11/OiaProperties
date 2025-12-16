@@ -7,7 +7,7 @@
                 <div class="col-md-4 mt-50" v-for="(project, i) in projects" :key="'desktop-' + i">
                     <div class="project-card">
                         <div class="image-wrap cursor">
-                            <img :src="project.image" class="img-fluid w-100" />
+                            <img :src="project.image" class="img-fluid w-100" alt="logo"/>
                         </div>
                         <div class="info-card">
                             <div class="meta">
@@ -33,9 +33,9 @@
             <div class="d-md-none mt-4 position-relative">
                 <v-carousel v-model="active" hide-delimiters :show-arrows="false" height="420">
                     <v-carousel-item v-for="(project, i) in projects" :key="'mobile-' + i">
-                        <div class="project-card  cursor">
+                        <div class="project-card cursor ">
                             <div class="image-wrap">
-                                <img :src="project.image" class="img-fluid w-100" />
+                                <img alt="projectimage" :src="project.image" class="img-fluid w-100" />
                             </div>
 
                             <div class="info-card">

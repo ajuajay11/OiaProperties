@@ -1,5 +1,5 @@
 <template>
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8">
@@ -8,7 +8,8 @@
                             class="clr_one fst-italic fw-semibold bg-white px-3 p-2 rounded-4 ">Fahid
                             Island</span>
                         <div class="postion-relative text-white">
-                            <h1 class="text-white fs_one mt-3 fw-semibold my-4" data-aos="fade-down" data-aos-delay="3000">
+                            <h1 class="text-white fs_one mt-3 fw-semibold my-4" data-aos="fade-up"
+                                data-aos-delay="2000">
                                 Exclusive Off-Plan Island <br></br>Living in Abu Dhabi
                             </h1>
                             <div class="hero-badge" data-aos="fade-down" data-aos-delay="3000">
@@ -24,12 +25,16 @@
                                 </svg>
                             </div>
                         </div>
-
+                        <audio ref="notifyAudio" preload="auto">
+                            <source src="../../../assets/images/notification-pluck-on-slower-269285.mp3"
+                                type="audio/mp3" />
+                        </audio>
                         <p class="lead mb-5 text-white" data-aos="fade-up" data-aos-delay="1500">
                             Secure early access to luxury off-plan residences on Abu Dhabi’s newest residential island
                             community.
                         </p>
-                        <Button text="Register Interest" color="white" @click="showRegister = true" data-aos="fade-up" data-aos-delay="1800" />
+                        <Button text="Register Interest" color="white" @click="showRegister = true" data-aos="fade-up"
+                            data-aos-delay="1800" />
                     </div>
 
                 </div>

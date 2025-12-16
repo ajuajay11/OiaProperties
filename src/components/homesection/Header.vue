@@ -1,29 +1,26 @@
 <template>
   <header>
     <nav class="container px-5 px-lg-0">
-
-      <div class="row header align-items-center d-none d-lg-flex" data-aos="fade-down" data-aos-delay="3000">
+      
+      <div class="row header align-items-center d-none d-md-flex" data-aos="fade-down" data-aos-delay="3000">
 
         <div class="navbar navbar-expand-lg col-lg-4 px-3 justify-content-start">
           <ul class="navbar-nav d-flex gap-3 text-capitalize">
             <li class="nav-item cursor">
               <span class="nav-link d-flex align-items-center gap-1" @click.stop="toggle = !toggle">
-                Home <i class="bi" :class="toggle ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+                All Pages <i class="bi" :class="toggle ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
               </span>
             </li>
 
             <li class="nav-item">
               <a href="#contact" class="nav-link" :class="{ active: activeSection === 'contact' }"
-                @click.prevent="scrollTo('contact')">
+                >
                 Contact
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="#faq" class="nav-link" :class="{ active: activeSection === 'faq' }"
-                @click.prevent="scrollTo('faq')">
-                Faq
-              </a>
+              <a href="#faq" class="nav-link" :class="{ active: activeSection === 'faq' }" > Faq </a>
             </li>
           </ul>
         </div>
@@ -34,25 +31,21 @@
           </router-link>
         </div>
 
-        <!-- RIGHT: BUTTON -->
-        <div class="col-lg-4 d-flex justify-content-end">
+         <div class="col-lg-4 d-flex justify-content-end">
           <Button text="Register" @click="showRegister = true" />
         </div>
 
       </div>
 
-      <!-- ================= MOBILE / TABLET ================= -->
-      <div class="row align-items-center d-lg-none py-2 bg-white rounded-4">
+       <div class="row align-items-center d-lg-none py-2 bg-white rounded-4">
 
-        <!-- LEFT 6: LOGO -->
-        <div class="col-6 d-flex align-items-center">
+         <div class="col-6 d-flex align-items-center">
           <router-link to="/" class="py-2 px-4 rounded-4">
             <img src="../../assets/images/logo.webp" alt="logo" width="70" height="70" class="img-fluid" />
           </router-link>
         </div>
 
-        <!-- RIGHT 6: HAMBURGER -->
-        <div class="col-6 d-flex justify-content-end">
+         <div class="col-6 d-flex justify-content-end">
           <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"
             aria-controls="mobileMenu">
             <i class="bi bi-list clr_one" style="font-size: 26px;"></i>
@@ -64,25 +57,22 @@
     </nav>
 
 
-    <!-- DROPDOWN -->
-    <transition name="dropdown">
+     <transition name="dropdown">
       <div v-if="toggle" class="toggleMenu" v-click-outside="closeMenu">
         <div class="container">
           <div class="dropdown-card">
             <div class="row g-4">
 
-              <!-- IMAGE (hidden on mobile) -->
-              <div class="col-md-3 dropdown-image">
+               <div class="col-md-3 dropdown-image">
                 <img src="../../assets/images/toggle.avif" class="img-fluid rounded-3" alt="Preview" />
               </div>
 
-              <!-- LINKS -->
-              <div class="col-md-9">
+               <div class="col-md-9">
                 <div class="row">
 
                   <div class="col-md-4">
                     <ul class="dropdown-links">
-                      <li><a href="/homepage" @click="closeMenu">Homepage</a></li>
+                      <li><a href="#home" @click="closeMenu">Home</a></li>
                       <li><a href="/services" @click="closeMenu">Services</a></li>
                       <li><a href="/reviews" @click="closeMenu">Reviews</a></li>
                     </ul>
@@ -100,7 +90,7 @@
                     <ul class="dropdown-links">
                       <li><a href="/terms" @click="closeMenu">Terms</a></li>
                       <li><a href="/privacy" @click="closeMenu">Privacy</a></li>
-                      <li><a href="/faq" @click="closeMenu">FAQ</a></li>
+                      <li><a href="#faq" @click="closeMenu">FAQ</a></li>
                     </ul>
                   </div>
 
@@ -114,36 +104,34 @@
     </transition>
   </header>
 
-  <!-- MOBILE OFFCANVAS MENU -->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+   <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body justify-content-center d-flex flex-column">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <router-link to="/" class="nav-link fs_one" data-bs-dismiss="offcanvas">Landing </router-link>
-        </li>
-        <li class="nav-item">
-          <a href="#about" class="nav-link fs_one" data-bs-dismiss="offcanvas" @click.prevent="scrollTo('about')">About</a>
-        </li>
-        <li class="nav-item">
-          <a href="#properties" class="nav-link fs_one" data-bs-dismiss="offcanvas"
-            @click.prevent="scrollTo('properties')">Properties</a>
-        </li>
-        <li class="nav-item">
-          <a href="#location" class="nav-link fs_1" data-bs-dismiss="offcanvas"
-            @click.prevent="scrollTo('location')">Location</a>
-        </li>
-        <li class="nav-item">
-          <a href="#faq" class="nav-link fs_one" data-bs-dismiss="offcanvas" @click.prevent="scrollTo('faq')">FAQ</a>
-        </li>
-      </ul>
-      <div class="mt-3 text-center">
-        <Button text="Register" @click="showRegister = true" />
-      </div>
-    </div>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link fs_one" href="#home" data-bs-dismiss="offcanvas">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link fs_one" href="#about" data-bs-dismiss="offcanvas">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link fs_one" href="#properties" data-bs-dismiss="offcanvas">Properties</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link fs_one" href="#location" data-bs-dismiss="offcanvas">Location</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link fs_one" href="#faq" data-bs-dismiss="offcanvas">FAQ</a>
+    </li>
+  </ul>
+
+  <div class="mt-3 text-center">
+    <Button text="Register" @click="showRegister = true" />
+  </div>
+</div>
   </div>
 
   <RegisterPopup v-if="showRegister" @close="showRegister = false" />
@@ -165,9 +153,30 @@ const scrollTo = (id) => {
 const closeMenu = () => {
   toggle.value = false
 }
-
-/* Click outside directive */
-const vClickOutside = {
+const handleMobileNav = (id) => {
+  const offcanvasEl = document.getElementById('mobileMenu')
+  const instance = window.bootstrap?.Offcanvas.getInstance(offcanvasEl)
+  
+  // Close the offcanvas first
+  if (instance) {
+    instance.hide()
+    
+    // Wait for offcanvas to fully close before scrolling
+    offcanvasEl.addEventListener('hidden.bs.offcanvas', () => {
+      window.$lenis?.scrollTo(`#${id}`, {
+        offset: -130,
+        duration: 1.1
+      })
+    }, { once: true }) // Use once: true so the listener is removed after firing
+  } else {
+    // Fallback if Bootstrap isn't available
+    window.$lenis?.scrollTo(`#${id}`, {
+      offset: -130,
+      duration: 1.1
+    })
+  }
+}
+ const vClickOutside = {
   mounted(el, binding) {
     el._clickOutside = (e) => {
       if (!el.contains(e.target)) binding.value()
@@ -182,8 +191,7 @@ const vClickOutside = {
 
 
 <style scoped>
-/* HEADER */
-header {
+ header {
   position: fixed;
   top: 30px;
   width: 100%;
@@ -197,8 +205,7 @@ nav .header {
   padding: 10px 0;
 }
 
-/* NAV */
-.nav-link {
+ .nav-link {
   cursor: pointer;
   font-weight: 600;
 }
@@ -208,8 +215,7 @@ nav .header {
   color: var(--template-main_color);
 }
 
-/* DROPDOWN */
-.toggleMenu {
+ .toggleMenu {
   position: fixed;
   top: 155px;
   left: 0;
@@ -229,8 +235,7 @@ nav .header {
   object-fit: cover;
 }
 
-/* LINKS */
-.dropdown-links {
+ .dropdown-links {
   list-style: none;
   padding: 0;
 }
@@ -251,8 +256,7 @@ nav .header {
   padding-left: 16px;
 }
 
-/* TRANSITION */
-.dropdown-enter-active,
+ .dropdown-enter-active,
 .dropdown-leave-active {
   transition: 0.3s ease;
 }
@@ -267,8 +271,7 @@ nav .header {
   transform: translateY(-10px);
 }
 
-/* RESPONSIVE */
-@media (max-width: 991px) {
+ @media (max-width: 991px) {
   header {
     top: 10px;
   }

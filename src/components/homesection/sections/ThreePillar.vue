@@ -5,7 +5,7 @@
 
                 <!-- LEFT -->
                 <div class="col-lg-6 bg_one position-relative">
-                    <div class="row justify-content-lg-end">
+                    <div class="row justify-content-lg-end" data-aos="fade-left">
                         <div class="col-12 col-lg-9 col-xxl-9 position-relative">
                             <v-carousel v-model="currentSlide" class="flex-fill" :show-arrows="false" cycle hide-delimiters>
                                 <v-carousel-item v-for="(slide, i) in slides" :key="i">
@@ -22,14 +22,15 @@
                                     </div>
                                 </v-carousel-item>
                             </v-carousel>
-
                             <!-- Custom Arrows -->
+                            <div class="d-block d-lg-none">
                             <button class="carousel-arrow carousel-arrow-left" @click="prevSlide">
                                 <i class="bi bi-chevron-left"></i>
                             </button>
                             <button class="carousel-arrow carousel-arrow-right" @click="nextSlide">
                                 <i class="bi bi-chevron-right"></i>
                             </button>
+                            </div>
 
                         </div>
 

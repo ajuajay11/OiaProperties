@@ -8,8 +8,8 @@
             <LocationMap />
             <div class="row pt-3 d-none d-lg-block">
                 <div class="proximity-list ">
-                <div v-for="(item, index) in locations" :key="index" class="proximity-card">
-                    <img :src="item.icon" class="icon" />
+                <div v-for="(item, index) in locations" :key="index" class="proximity-card" :data-aos="index % 2 === 1 ? 'fade-up' : 'fade-down'">
+                    <img :src="item.icon" class="icon" alt="logo"/>
 
                     <h3>
                         {{ item.time }} <span>min</span>
