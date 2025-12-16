@@ -1,5 +1,5 @@
 <template>
-    <section class="pillars-section p-0">
+    <section class="pillars-section p-0" id="properties">
         <div class="container-fluid">
             <div class="row align-items-stretch">
 

@@ -1,5 +1,5 @@
 <template>
-    <section class="proximity-section mt-50">
+    <section class="proximity-section mt-50" id="location">
         <div class="container text-center">
             <h1 class="section-title fs_1 mt-3 text-capitalize text-center">Prime Location & Connectivity</h1>
             <p class="section-subtitle pb-5 mb-5">

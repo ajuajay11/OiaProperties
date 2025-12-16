@@ -123,7 +123,7 @@
     <div class="offcanvas-body justify-content-center d-flex flex-column">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link to="/" class="nav-link fs_one" data-bs-dismiss="offcanvas">Landing</router-link>
+          <router-link to="/" class="nav-link fs_one" data-bs-dismiss="offcanvas">Landing </router-link>
         </li>
         <li class="nav-item">
           <a href="#about" class="nav-link fs_one" data-bs-dismiss="offcanvas" @click.prevent="scrollTo('about')">About</a>
@@ -133,8 +133,8 @@
             @click.prevent="scrollTo('properties')">Properties</a>
         </li>
         <li class="nav-item">
-          <a href="#contact" class="nav-link fs_one" data-bs-dismiss="offcanvas"
-            @click.prevent="scrollTo('contact')">Contact</a>
+          <a href="#location" class="nav-link fs_1" data-bs-dismiss="offcanvas"
+            @click.prevent="scrollTo('location')">Location</a>
         </li>
         <li class="nav-item">
           <a href="#faq" class="nav-link fs_one" data-bs-dismiss="offcanvas" @click.prevent="scrollTo('faq')">FAQ</a>

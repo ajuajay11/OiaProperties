@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container mt-50">
+    <div class="container mt-50" id="about">
         <div class="row w-100 py-5 mb-4">
             <div class="col-12 col-lg-6" data-aos="fade-right">
                 <div class="text-start">
