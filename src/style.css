@@ -57,7 +57,7 @@ html {
 
 /* fonts */
 .fs_one{
-  font-size: clamp(30px, 4vw, 60px) !important;
+  font-size: clamp(40px, 4vw, 65px) !important;
 
 }
 .fs_1{

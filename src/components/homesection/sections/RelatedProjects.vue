@@ -2,7 +2,7 @@
     <section class="related-projects mt-50">
         <div class="container">
             <div class="row d-none d-md-flex">
-                <h1 class="section-title fs_1 text-capitalize my-5 text-center"> Related Projects </h1>
+                <h1 class="section-title fs_1 mt-3 text-capitalize text-center"> Related Projects </h1>
                 <p class="section-subtitle text-center mb-4">Explore other premium developments by Aldar Properties, offering exceptional living experiences in Abu Dhabi.</p>
                 <div class="col-md-4 mt-50" v-for="(project, i) in projects" :key="'desktop-' + i">
                     <div class="project-card">

@@ -8,7 +8,7 @@
                             class="clr_one fst-italic fw-semibold bg-white px-3 p-2 rounded-4 ">Fahid
                             Island</span>
                         <div class="postion-relative text-white">
-                            <h1 class="fs_one fw-semibold my-4" data-aos="fade-down" data-aos-delay="3000">
+                            <h1 class="text-white fs_one mt-3 fw-semibold my-4" data-aos="fade-down" data-aos-delay="3000">
                                 Exclusive Off-Plan Island <br></br>Living in Abu Dhabi
                             </h1>
                             <div class="hero-badge" data-aos="fade-down" data-aos-delay="3000">

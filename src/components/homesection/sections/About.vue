@@ -2,18 +2,18 @@
 
     <div class="container mt-50">
         <div class="row w-100 py-5 mb-4">
-            <div class="col-6" data-aos="fade-right">
+            <div class="col-12 col-lg-6" data-aos="fade-right">
                 <div class="text-start">
-                    <span class="clr_one fw-semibold bg_one px-3 p-2 rounded-4" style="color: #fff !important;">Fahid
+                    <span class="clr_one fw-semibold bg_one px-3 p-2 rounded-4" style=" color: #fff !important;">Fahid
                         Island</span>
 
                     <span class="fs_1 fw-semibold my-4 ">
-                        <h1 class="section-title fs_1">Exclusive Island </h1>
+                        <h1 class="section-title fs_1 mt-3" >Exclusive Island </h1>
                         <p class=" m-0fs_1 section-title">with Serene Living</p>
                     </span>
                 </div>
             </div>
-            <div class="col-6" data-aos="fade-in">
+            <div class="col-12 col-lg-6" data-aos="fade-in">
                 <p class="fs_5 fst-italic mb-5">
                     <span class="clr_one">Fahid Island</span>, Abu Dhabi's exclusive development by Aldar, offers a refined coastal lifestyle
                     with wellness and modern amenities. This low-density community includes residential areas,
@@ -116,6 +116,13 @@ export default {
     height: 420px;
     border-radius: 16px;
     overflow: hidden;
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+    .image-card {
+        width: 380px;
+    }
 }
 
 .image-card img {

@@ -1,15 +1,14 @@
 <template>
   <header>
-    <nav class="container">
+    <nav class="container px-5 px-lg-0">
 
-       <div class="row header align-items-center d-none d-lg-flex" data-aos="fade-down" data-aos-delay="3000">
+      <div class="row header align-items-center d-none d-lg-flex" data-aos="fade-down" data-aos-delay="3000">
 
-         <div class="navbar navbar-expand-lg col-lg-4 px-3 justify-content-start">
+        <div class="navbar navbar-expand-lg col-lg-4 px-3 justify-content-start">
           <ul class="navbar-nav d-flex gap-3 text-capitalize">
             <li class="nav-item cursor">
               <span class="nav-link d-flex align-items-center gap-1" @click.stop="toggle = !toggle">
-                Home
-                <i class="bi" :class="toggle ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+                Home <i class="bi" :class="toggle ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
               </span>
             </li>
 
@@ -29,7 +28,7 @@
           </ul>
         </div>
 
-         <div class="col-lg-4 d-flex justify-content-center">
+        <div class="col-lg-4 d-flex justify-content-center">
           <router-link to="/">
             <img src="../../assets/images/logo.webp" alt="logo" width="90" height="90" class="img-fluid" />
           </router-link>
@@ -43,11 +42,11 @@
       </div>
 
       <!-- ================= MOBILE / TABLET ================= -->
-      <div class="row align-items-center d-lg-none py-2">
+      <div class="row align-items-center d-lg-none py-2 bg-white rounded-4">
 
         <!-- LEFT 6: LOGO -->
         <div class="col-6 d-flex align-items-center">
-          <router-link to="/" class="bg-white py-2 px-4 rounded-4">
+          <router-link to="/" class="py-2 px-4 rounded-4">
             <img src="../../assets/images/logo.webp" alt="logo" width="70" height="70" class="img-fluid" />
           </router-link>
         </div>
@@ -121,27 +120,27 @@
       <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
+    <div class="offcanvas-body justify-content-center d-flex flex-column">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link to="/" class="nav-link" data-bs-dismiss="offcanvas">Homepage</router-link>
+          <router-link to="/" class="nav-link fs_one" data-bs-dismiss="offcanvas">Landing</router-link>
         </li>
         <li class="nav-item">
-          <a href="#about" class="nav-link" data-bs-dismiss="offcanvas" @click.prevent="scrollTo('about')">About</a>
+          <a href="#about" class="nav-link fs_one" data-bs-dismiss="offcanvas" @click.prevent="scrollTo('about')">About</a>
         </li>
         <li class="nav-item">
-          <a href="#properties" class="nav-link" data-bs-dismiss="offcanvas"
+          <a href="#properties" class="nav-link fs_one" data-bs-dismiss="offcanvas"
             @click.prevent="scrollTo('properties')">Properties</a>
         </li>
         <li class="nav-item">
-          <a href="#contact" class="nav-link" data-bs-dismiss="offcanvas"
+          <a href="#contact" class="nav-link fs_one" data-bs-dismiss="offcanvas"
             @click.prevent="scrollTo('contact')">Contact</a>
         </li>
         <li class="nav-item">
-          <a href="#faq" class="nav-link" data-bs-dismiss="offcanvas" @click.prevent="scrollTo('faq')">FAQ</a>
+          <a href="#faq" class="nav-link fs_one" data-bs-dismiss="offcanvas" @click.prevent="scrollTo('faq')">FAQ</a>
         </li>
       </ul>
-      <div class="mt-3">
+      <div class="mt-3 text-center">
         <Button text="Register" @click="showRegister = true" />
       </div>
     </div>

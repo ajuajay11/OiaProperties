@@ -1,13 +1,13 @@
 <template>
     <section class="proximity-section mt-50">
         <div class="container text-center">
-            <h1 class="section-title fs_1 text-capitalize my-5 text-center">Prime Location & Connectivity</h1>
+            <h1 class="section-title fs_1 mt-3 text-capitalize text-center">Prime Location & Connectivity</h1>
             <p class="section-subtitle pb-5 mb-5">
                 Fahid Island offers unparalleled accessibility, with swift connections to Abu Dhabi's key attractions, airports, and business hubs.
             </p>
             <LocationMap />
-
-            <div class="proximity-list border-top">
+            <div class="row pt-3 d-none d-lg-block">
+                <div class="proximity-list ">
                 <div v-for="(item, index) in locations" :key="index" class="proximity-card">
                     <img :src="item.icon" class="icon" />
 
@@ -18,6 +18,8 @@
                     <p>{{ item.name }}</p>
                 </div>
             </div>
+            </div>
+            
 
         </div>
     </section>
@@ -75,8 +77,7 @@ export default {
     display: flex;
     gap: 24px;
     justify-content: center;
-    flex-wrap: wrap;
-
+    flex-wrap: nowrap;
 }
 
 .proximity-card {
