@@ -25,10 +25,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <audio ref="notifyAudio" preload="auto">
-                            <source src="../../../assets/images/notification-pluck-on-slower-269285.mp3"
-                                type="audio/mp3" />
-                        </audio>
+                        
                         <p class="lead mb-5 text-white" data-aos="fade-up" data-aos-delay="1500">
                             Secure early access to luxury off-plan residences on Abu Dhabi’s newest residential island
                             community.
