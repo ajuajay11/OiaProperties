@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav class="container px-5 px-lg-0">
-      
+
       <div class="row header align-items-center d-none d-md-flex" data-aos="fade-down" data-aos-delay="3000">
 
         <div class="navbar navbar-expand-lg col-lg-4 px-3 justify-content-start">
@@ -13,14 +13,13 @@
             </li>
 
             <li class="nav-item">
-              <a href="#contact" class="nav-link" :class="{ active: activeSection === 'contact' }"
-                >
+              <a href="#contact" class="nav-link" :class="{ active: activeSection === 'contact' }">
                 Contact
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="#faq" class="nav-link" :class="{ active: activeSection === 'faq' }" > Faq </a>
+              <a href="#faq" class="nav-link" :class="{ active: activeSection === 'faq' }"> Faq </a>
             </li>
           </ul>
         </div>
@@ -31,21 +30,21 @@
           </router-link>
         </div>
 
-         <div class="col-lg-4 d-flex justify-content-end">
+        <div class="col-lg-4 d-flex justify-content-end">
           <Button text="Register" @click="showRegister = true" />
         </div>
 
       </div>
 
-       <div class="row align-items-center d-lg-none py-2 bg-white rounded-4">
+      <div class="row align-items-center d-lg-none py-2 bg-white rounded-4">
 
-         <div class="col-6 d-flex align-items-center">
+        <div class="col-6 d-flex align-items-center">
           <router-link to="/" class="py-2 px-4 rounded-4">
             <img src="../../assets/images/logo.webp" alt="logo" width="70" height="70" class="img-fluid" />
           </router-link>
         </div>
 
-         <div class="col-6 d-flex justify-content-end">
+        <div class="col-6 d-flex justify-content-end">
           <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"
             aria-controls="mobileMenu">
             <i class="bi bi-list clr_one" style="font-size: 26px;"></i>
@@ -57,17 +56,17 @@
     </nav>
 
 
-     <transition name="dropdown">
+    <transition name="dropdown">
       <div v-if="toggle" class="toggleMenu" v-click-outside="closeMenu">
         <div class="container">
           <div class="dropdown-card">
             <div class="row g-4">
 
-               <div class="col-md-3 dropdown-image">
+              <div class="col-md-3 dropdown-image">
                 <img src="../../assets/images/toggle.avif" class="img-fluid rounded-3" alt="Preview" />
               </div>
 
-               <div class="col-md-9">
+              <div class="col-md-9">
                 <div class="row">
 
                   <div class="col-md-4">
@@ -104,34 +103,35 @@
     </transition>
   </header>
 
-   <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body justify-content-center d-flex flex-column">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link fs_one" href="#home" data-bs-dismiss="offcanvas">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link fs_one" href="#about" data-bs-dismiss="offcanvas">About</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link fs_one" href="#properties" data-bs-dismiss="offcanvas">Properties</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link fs_one" href="#location" data-bs-dismiss="offcanvas">Location</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link fs_one" href="#faq" data-bs-dismiss="offcanvas">FAQ</a>
-    </li>
-  </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link fs_one" @click="handleMobileNav('home')">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs_one" @click="handleMobileNav('about')">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs_one" @click="handleMobileNav('properties')">Properties</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs_one" @click="handleMobileNav('location')">Location</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs_one" @click="handleMobileNav('faq')">FAQ</a>
+        </li>
 
-  <div class="mt-3 text-center">
-    <Button text="Register" @click="showRegister = true" />
-  </div>
-</div>
+      </ul>
+
+      <div class="mt-3 text-center">
+        <Button text="Register" @click="showRegister = true" />
+      </div>
+    </div>
   </div>
 
   <RegisterPopup v-if="showRegister" @close="showRegister = false" />
@@ -156,27 +156,29 @@ const closeMenu = () => {
 const handleMobileNav = (id) => {
   const offcanvasEl = document.getElementById('mobileMenu')
   const instance = window.bootstrap?.Offcanvas.getInstance(offcanvasEl)
-  
-  // Close the offcanvas first
+
   if (instance) {
     instance.hide()
-    
-    // Wait for offcanvas to fully close before scrolling
-    offcanvasEl.addEventListener('hidden.bs.offcanvas', () => {
-      window.$lenis?.scrollTo(`#${id}`, {
-        offset: -130,
-        duration: 1.1
-      })
-    }, { once: true }) // Use once: true so the listener is removed after firing
+
+    offcanvasEl.addEventListener(
+      'hidden.bs.offcanvas',
+      () => {
+        window.$lenis?.scrollTo(`#${id}`, {
+          offset: -130,
+          duration: 1.1
+        })
+      },
+      { once: true }
+    )
   } else {
-    // Fallback if Bootstrap isn't available
     window.$lenis?.scrollTo(`#${id}`, {
       offset: -130,
       duration: 1.1
     })
   }
 }
- const vClickOutside = {
+
+const vClickOutside = {
   mounted(el, binding) {
     el._clickOutside = (e) => {
       if (!el.contains(e.target)) binding.value()
@@ -191,7 +193,7 @@ const handleMobileNav = (id) => {
 
 
 <style scoped>
- header {
+header {
   position: fixed;
   top: 30px;
   width: 100%;
@@ -205,7 +207,7 @@ nav .header {
   padding: 10px 0;
 }
 
- .nav-link {
+.nav-link {
   cursor: pointer;
   font-weight: 600;
 }
@@ -215,7 +217,7 @@ nav .header {
   color: var(--template-main_color);
 }
 
- .toggleMenu {
+.toggleMenu {
   position: fixed;
   top: 155px;
   left: 0;
@@ -235,7 +237,7 @@ nav .header {
   object-fit: cover;
 }
 
- .dropdown-links {
+.dropdown-links {
   list-style: none;
   padding: 0;
 }
@@ -256,7 +258,7 @@ nav .header {
   padding-left: 16px;
 }
 
- .dropdown-enter-active,
+.dropdown-enter-active,
 .dropdown-leave-active {
   transition: 0.3s ease;
 }
@@ -271,7 +273,7 @@ nav .header {
   transform: translateY(-10px);
 }
 
- @media (max-width: 991px) {
+@media (max-width: 991px) {
   header {
     top: 10px;
   }
