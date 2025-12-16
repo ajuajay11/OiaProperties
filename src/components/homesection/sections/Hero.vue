@@ -3,18 +3,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8">
-                    <!-- Circular Badge -->
-                    <!-- Main Content -->
-                    <div class="text-start " data-aos="fade-down">
-                        <span data-aos="zoom-in" style="color: #08888c !important;" class="clr_one fw-semibold bg-white px-3 p-2 rounded-4 ">Fahid
+                    <div class="text-start " data-aos="fade-up" data-aos-delay="3000">
+                        <span data-aos="zoom-in" data-aos-delay="600" style="color: #08888c !important;"
+                            class="clr_one fst-italic fw-semibold bg-white px-3 p-2 rounded-4 ">Fahid
                             Island</span>
                         <div class="postion-relative text-white">
-                            <h1 class="fs_1 fw-semibold my-4">
+                            <h1 class="fs_one fw-semibold my-4" data-aos="fade-down" data-aos-delay="3000">
                                 Exclusive Off-Plan Island <br></br>Living in Abu Dhabi
                             </h1>
-                            <div class="hero-badge">
+                            <div class="hero-badge" data-aos="fade-down" data-aos-delay="3000">
                                 <svg class="badge-circle" viewBox="0 0 120 120">
-                                    <path id="circlePath" d="M 60, 60 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" fill="none" />
+                                    <path id="circlePath" d="M 60, 60 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0"
+                                        fill="none" />
                                     <text class="badge-text">
                                         <textPath href="#circlePath" startOffset="0%">
                                             Fahid Island
@@ -25,11 +25,11 @@
                             </div>
                         </div>
 
-                        <p class="lead mb-5">
+                        <p class="lead mb-5" data-aos="fade-up" data-aos-delay="1500">
                             Secure early access to luxury off-plan residences on Abu Dhabi’s newest residential island
                             community.
                         </p>
-                        <Button text="Register Interest" color="white" @click="showRegister = true" />
+                        <Button text="Register Interest" color="white" @click="showRegister = true" data-aos="fade-up" data-aos-delay="1800" />
                     </div>
 
                 </div>
@@ -76,11 +76,10 @@ const showRegister = ref(false)
     z-index: 2;
 }
 
-/* Circular Badge */
 .hero-badge {
     position: absolute;
     top: 10px;
-    right: 10%;
+    right: 3%;
     width: 120px;
     height: 120px;
     animation: rotate 20s linear infinite;

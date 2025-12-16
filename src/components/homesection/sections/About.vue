@@ -13,7 +13,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-6" data-aos="fade-left">
+            <div class="col-6" data-aos="fade-in">
                 <p class="fs_5 fst-italic mb-5">
                     <span class="clr_one">Fahid Island</span>, Abu Dhabi's exclusive development by Aldar, offers a refined coastal lifestyle
                     with wellness and modern amenities. This low-density community includes residential areas,
@@ -33,7 +33,7 @@
     <!-- MARQUEE -->
     <div class="marquee-wrapper">
         <div class="marquee-track">
-            <div class="marquee-card" v-for="(item, index) in marqueeItems" :key="index">
+            <div class="marquee-card" v-for="(item, index) in marqueeItems" :key="index" data-aos="fade-down">
                 <div class="image-card">
                     <img :src="item.image" class="img-fluid" :alt="item.title" />
                     <div class="overlay">
@@ -56,34 +56,7 @@
 
         </div>
     </div>
-    <div class="counter-section" ref="counterSection">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-12 text-center">
-                    <h2 class="section-title fs_1" data-aos="fade-up">Proximity to Key Destinations</h2>
-                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Experience effortless
-                        connectivity with quick access to Abu Dhabi's premier locations.</p>
-                </div>
-            </div>
-            <div class="row justify-content-center g-3">
-                <div class="col-md-2 col-sm-6 my-5  text-white" :data-aos="index % 2 === 0 ? 'fade-up' : 'fade-down'" v-for="(item, index) in counter" :key="index">
-                    <div style="height: 200px;"
-                        class="bg-dark d-flex flex-column align-items-center justify-content-center rounded-circle py-5">
-                        <div>
-                            <i class="fas fa-map-marker-alt"></i> 
-                        </div>
-                        <div class="counter-number">
-                            <h1 class="fw-bold fs_4">{{ animatedCounters[index] }}<span class="unit"> min +</span>
-                            </h1>
-                        </div>
-                        <div class="fst-italic">
-                           <p class="fs_2 text-center text-capitalize "> {{ item.address }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <RegisterPopup v-if="showRegister" @close="showRegister = false" />
 </template>
 
@@ -112,48 +85,8 @@ export default {
                 { image: image5, title: "World's First Fitwel-Certified Island", description: 'Certified for health and wellness.' },
                 { image: image6, title: 'Sustainability, First and Always', description: 'Committed to eco-friendly practices.' }
             ],
-            counter: [
-                { time: "10 min", address: "YAS island" },
-                { time: "15 min", address: "SAADIYAT ISLAND" },
-                { time: "50 min", address: "DUBAI" },
-                { time: "15 min", address: "ZAYED INTERNATIONAL AIRPORT" },
-                { time: "20 min", address: "ABU DHABI CITY" },
-            ],
-            animatedCounters: [0, 0, 0, 0, 0],
-            hasAnimated: false
+            
         };
-    },
-    mounted() {
-        this.observeCounter();
-    },
-    methods: {
-        observeCounter() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !this.hasAnimated) {
-                        this.hasAnimated = true;
-                        this.startCounters();
-                    }
-                });
-            }, { threshold: 0.5 });
-            observer.observe(this.$refs.counterSection);
-        },
-        startCounters() {
-            this.counter.forEach((item, index) => {
-                const target = parseInt(item.time);
-                const duration = 2000; // 2 seconds
-                const step = target / (duration / 50);
-                let current = 0;
-                const timer = setInterval(() => {
-                    current += step;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    this.animatedCounters[index] = Math.floor(current);
-                }, 50);
-            });
-        }
     },
     components: {
         Button,
@@ -229,22 +162,4 @@ export default {
     }
 }
 
-.counter-section {
-    padding: 80px 0;
-    color: #ffffff;
-}
-
-.dropdown-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-}
-
-.section-subtitle {
-   
-    color: #7f8c8d;
-    max-width: 600px;
-    margin: 0 auto;
-}
 </style>

@@ -1,55 +1,41 @@
 <template>
   <header>
     <nav class="container">
-      <div class="row header align-items-center" data-aos="fade-up">
+      <div class="row header align-items-center" data-aos="fade-up" data-aos-delay="3000">
 
         <!-- LEFT: NAV LINKS -->
-        <div class="navbar navbar-expand-lg col-lg-4 col-12 px-3 justify-content-center justify-content-lg-start" >
-          <ul class="navbar-nav d-flex gap-3 text-capitalize">
-             
+        <div class="navbar navbar-expand-lg col-lg-4 col-12 px-3 justify-content-center justify-content-lg-start">
+          <div class="d-none d-lg-block">
+            <ul class="navbar-nav d-flex gap-3 text-capitalize">
+
             <li class="nav-item cursor">
-              <span
-                class="nav-link d-flex align-items-center gap-1"
-                @click.stop="toggle = !toggle"
-              >
+              <span class="nav-link d-flex align-items-center gap-1" @click.stop="toggle = !toggle">
                 Home
                 <i class="bi" :class="toggle ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
               </span>
             </li>
 
             <li class="nav-item">
-              <a
-                href="#contact"
-                class="nav-link"
-                :class="{ active: activeSection === 'contact' }"
-                @click.prevent="scrollTo('contact')"
-              >
+              <a href="#contact" class="nav-link" :class="{ active: activeSection === 'contact' }"
+                @click.prevent="scrollTo('contact')">
                 Contact
               </a>
             </li>
 
             <li class="nav-item">
-              <a
-                href="#faq"
-                class="nav-link"
-                :class="{ active: activeSection === 'faq' }"
-                @click.prevent="scrollTo('faq')"
-              >
+              <a href="#faq" class="nav-link" :class="{ active: activeSection === 'faq' }"
+                @click.prevent="scrollTo('faq')">
                 Faq
               </a>
             </li>
           </ul>
+          </div>
         </div>
 
         <!-- CENTER: LOGO -->
         <div class="col-lg-4 col-12 d-flex justify-content-center my-2 my-lg-0">
           <router-link to="/">
-            <img
-            src="../../assets/images/logo.webp"
-            alt="logo"
-            width="90" height="90"
-            class="img-fluid"
-          />
+            <img src="../../assets/images/logo.webp" alt="logo" width="90" height="90" class="img-fluid" />
           </router-link>
         </div>
 
@@ -63,22 +49,14 @@
 
     <!-- DROPDOWN -->
     <transition name="dropdown">
-      <div
-        v-if="toggle"
-        class="toggleMenu"
-        v-click-outside="closeMenu"
-      >
+      <div v-if="toggle" class="toggleMenu" v-click-outside="closeMenu">
         <div class="container">
           <div class="dropdown-card">
             <div class="row g-4">
 
               <!-- IMAGE (hidden on mobile) -->
               <div class="col-md-3 dropdown-image">
-                <img
-                  src="../../assets/images/toggle.avif"
-                  class="img-fluid rounded-3"
-                  alt="Preview"
-                />
+                <img src="../../assets/images/toggle.avif" class="img-fluid rounded-3" alt="Preview" />
               </div>
 
               <!-- LINKS -->
@@ -118,7 +96,7 @@
       </div>
     </transition>
   </header>
-     <RegisterPopup v-if="showRegister" @close="showRegister = false" />
+  <RegisterPopup v-if="showRegister" @close="showRegister = false" />
 
 </template>
 
@@ -165,7 +143,7 @@ header {
 nav .header {
   background: #fff;
   border-radius: 25px;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   padding: 10px 0;
 }
 
@@ -193,7 +171,7 @@ nav .header {
   background: #fff;
   border-radius: 20px;
   padding: 30px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .dropdown-image img {

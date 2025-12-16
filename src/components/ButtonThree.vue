@@ -1,6 +1,6 @@
 <template>
     <button class="btn_three">
-        <div>Register Here</div>
+        <div>{{text ? text : 'Register'}}</div>
         <svg fill="none" viewBox="0 0 24 24" height="25px" width="25px" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="white" d="M11.6801 14.62L14.2401 12.06L11.6801 9.5"></path>
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="white" d="M4 12.0601H14.17"> </path>
@@ -9,7 +9,11 @@
     </button>
 </template>
 
-<script setup></script>
+<script>
+    export default{
+        props:['text']
+    }
+</script>
 
 <style scoped>
 /* From Uiverse.io by catraco */

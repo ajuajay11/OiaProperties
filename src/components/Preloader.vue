@@ -3,8 +3,7 @@
   <div class="preloader" v-if="show">
     <div class="preloader-content">
       <img src="@/assets/images/preloader.gif" alt="Loading..." class="preloader-image" />
-      <p class="clr_one">Loading...</p>
-    </div>
+     </div>
   </div>
 </template>
 
@@ -43,8 +42,8 @@ export default {
 }
 
 .preloader-image {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
 }
 
 .preloader p {
