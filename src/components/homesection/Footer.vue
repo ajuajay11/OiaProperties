@@ -1,7 +1,7 @@
 <template>
   <section class="cta-section py-5" id="contact">
     <div class="container">
-      <div class="cta-card">
+      <div class="cta-card" data-aos="fade-up">
         <div class="row align-items-center">
           <div class="col-lg-7 mb-4 mb-lg-0">
             <h2 class="cta-heading mb-3">Ready to find your flow?</h2>
