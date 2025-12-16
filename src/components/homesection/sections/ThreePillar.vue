@@ -4,26 +4,38 @@
             <div class="row align-items-stretch">
 
                 <!-- LEFT -->
-                <div class="col-lg-6 bg_one ">
+                <div class="col-lg-6 bg_one">
                     <div class="row justify-content-end">
                         <div class="col-10 col-xxl-9">
-                            <v-carousel class="flex-fill" :show-arrows="false" cycle hide-delimiters>
+                            <v-carousel v-model="currentSlide" class="flex-fill" :show-arrows="false" cycle
+                                hide-delimiters>
                                 <v-carousel-item v-for="(slide, i) in slides" :key="i">
-                                    <div
-                                        class="d-flex flex-column justify-content-center align-items-start text-white h-100 text-start px-4">
+                                    <div class="d-flex flex-column justify-content-center align-items-start text-white h-100 text-start px-4">
                                         <span class="bg-white rounded-circle mb-3">
                                             <i class="fs_1 p-3 mb-4 clr_one" :class="slide.icon"></i>
                                         </span>
                                         <h3 class="fs_3">{{ slide.title }}</h3>
                                         <p class="fs-5">{{ slide.description }}</p>
                                         <div class="mb-4">
-                                            <Button text="Register Interest" color="white" @click="showRegister = true" />
+                                            <Button text="Register Interest" color="white"
+                                                @click="showRegister = true" />
                                         </div>
                                     </div>
                                 </v-carousel-item>
                             </v-carousel>
+                            <div class="d-flex gap-3">
+                                <button class="carousel-arrow carousel-arrow-left" @click="prevSlide">
+                                    <i class="bi bi-chevron-left"></i>
+                                </button>
+                                <button class="carousel-arrow carousel-arrow-right" @click="nextSlide">
+                                    <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                            <!-- Custom Arrows -->
+
 
                         </div>
+
                     </div>
                 </div>
                 <!-- RIGHT (image defines height) -->
@@ -45,6 +57,15 @@ import { ref } from 'vue';
 import Button from '../../ButtonThree.vue';
 import RegisterPopup from '../../RegisterPopup.vue';
 const showRegister = ref(false)
+const currentSlide = ref(0)
+
+const nextSlide = () => {
+    currentSlide.value = (currentSlide.value + 1) % slides.length;
+};
+
+const prevSlide = () => {
+    currentSlide.value = (currentSlide.value - 1 + slides.length) % slides.length;
+};
 
 const slides = [
     {
@@ -75,5 +96,31 @@ const slides = [
 
 .object-fit-cover {
     object-fit: cover;
+}
+
+.carousel-arrow {
+   
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.carousel-arrow:hover {
+    background: rgba(255, 255, 255, 1);
+}
+ 
+.carousel-arrow i {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #000;
 }
 </style>

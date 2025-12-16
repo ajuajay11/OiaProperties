@@ -16,6 +16,6 @@
     import RelatedProjects from "../components/homesection/sections/RelatedProjects.vue";
     import ScienceofFahidLiving from "../components/homesection/sections/ScienceofFahidLiving.vue";
     import Faq from "../components/homesection/sections/Faq.vue";
-</script>
+ </script>
 
 <style></style>

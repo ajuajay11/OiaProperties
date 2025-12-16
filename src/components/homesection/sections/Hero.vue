@@ -25,7 +25,7 @@
                             </div>
                         </div>
 
-                        <p class="lead mb-5" data-aos="fade-up" data-aos-delay="1500">
+                        <p class="lead mb-5 text-white" data-aos="fade-up" data-aos-delay="1500">
                             Secure early access to luxury off-plan residences on Abu Dhabi’s newest residential island
                             community.
                         </p>

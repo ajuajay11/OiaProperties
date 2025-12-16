@@ -1,13 +1,11 @@
 <template>
   <header>
     <nav class="container">
-      <div class="row header align-items-center" data-aos="fade-up" data-aos-delay="3000">
 
-        <!-- LEFT: NAV LINKS -->
-        <div class="navbar navbar-expand-lg col-lg-4 col-12 px-3 justify-content-center justify-content-lg-start">
-          <div class="d-none d-lg-block">
-            <ul class="navbar-nav d-flex gap-3 text-capitalize">
+       <div class="row header align-items-center d-none d-lg-flex" data-aos="fade-down" data-aos-delay="3000">
 
+         <div class="navbar navbar-expand-lg col-lg-4 px-3 justify-content-start">
+          <ul class="navbar-nav d-flex gap-3 text-capitalize">
             <li class="nav-item cursor">
               <span class="nav-link d-flex align-items-center gap-1" @click.stop="toggle = !toggle">
                 Home
@@ -29,23 +27,43 @@
               </a>
             </li>
           </ul>
-          </div>
         </div>
 
-        <!-- CENTER: LOGO -->
-        <div class="col-lg-4 col-12 d-flex justify-content-center my-2 my-lg-0">
+         <div class="col-lg-4 d-flex justify-content-center">
           <router-link to="/">
             <img src="../../assets/images/logo.webp" alt="logo" width="90" height="90" class="img-fluid" />
           </router-link>
         </div>
 
         <!-- RIGHT: BUTTON -->
-        <div class="col-lg-4 col-12 d-flex justify-content-center justify-content-lg-end">
+        <div class="col-lg-4 d-flex justify-content-end">
           <Button text="Register" @click="showRegister = true" />
         </div>
 
       </div>
+
+      <!-- ================= MOBILE / TABLET ================= -->
+      <div class="row align-items-center d-lg-none py-2">
+
+        <!-- LEFT 6: LOGO -->
+        <div class="col-6 d-flex align-items-center">
+          <router-link to="/" class="bg-white py-2 px-4 rounded-4">
+            <img src="../../assets/images/logo.webp" alt="logo" width="70" height="70" class="img-fluid" />
+          </router-link>
+        </div>
+
+        <!-- RIGHT 6: HAMBURGER -->
+        <div class="col-6 d-flex justify-content-end">
+          <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"
+            aria-controls="mobileMenu">
+            <i class="bi bi-list clr_one" style="font-size: 26px;"></i>
+          </button>
+        </div>
+
+      </div>
+
     </nav>
+
 
     <!-- DROPDOWN -->
     <transition name="dropdown">
@@ -96,6 +114,39 @@
       </div>
     </transition>
   </header>
+
+  <!-- MOBILE OFFCANVAS MENU -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <router-link to="/" class="nav-link" data-bs-dismiss="offcanvas">Homepage</router-link>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link" data-bs-dismiss="offcanvas" @click.prevent="scrollTo('about')">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="#properties" class="nav-link" data-bs-dismiss="offcanvas"
+            @click.prevent="scrollTo('properties')">Properties</a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link" data-bs-dismiss="offcanvas"
+            @click.prevent="scrollTo('contact')">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="#faq" class="nav-link" data-bs-dismiss="offcanvas" @click.prevent="scrollTo('faq')">FAQ</a>
+        </li>
+      </ul>
+      <div class="mt-3">
+        <Button text="Register" @click="showRegister = true" />
+      </div>
+    </div>
+  </div>
+
   <RegisterPopup v-if="showRegister" @close="showRegister = false" />
 
 </template>
@@ -137,7 +188,7 @@ header {
   position: fixed;
   top: 30px;
   width: 100%;
-  z-index: 20;
+  z-index: 9999;
 }
 
 nav .header {

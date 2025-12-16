@@ -1,7 +1,7 @@
 <template>
 
-    <div class="container">
-        <div class="row w-100   py-50">
+    <div class="container mt-50">
+        <div class="row w-100 py-5 mb-4">
             <div class="col-6" data-aos="fade-right">
                 <div class="text-start">
                     <span class="clr_one fw-semibold bg_one px-3 p-2 rounded-4" style="color: #fff !important;">Fahid
@@ -34,7 +34,7 @@
     <div class="marquee-wrapper">
         <div class="marquee-track">
             <div class="marquee-card" v-for="(item, index) in marqueeItems" :key="index" data-aos="fade-down">
-                <div class="image-card">
+                <div class="image-card cursor">
                     <img :src="item.image" class="img-fluid" :alt="item.title" />
                     <div class="overlay">
                         <h5>{{ item.title }}</h5>
