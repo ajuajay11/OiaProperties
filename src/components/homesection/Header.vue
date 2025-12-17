@@ -19,7 +19,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="#faq" class="nav-link" :class="{ menu_active: activeSection === 'faq' }"> Faq </a>   
+              <a href="#faq" class="nav-link" :class="{ menu_active: activeSection === 'faq' }"> Faq </a>
             </li>
           </ul>
         </div>
@@ -71,7 +71,8 @@
 
                   <div class="col-md-4">
                     <ul class="dropdown-links">
-                      <li><a :class="{ menu_active: activeSection == 'home' }" href="#home" @click="closeMenu">Home</a></li>
+                      <li><a :class="{ menu_active: activeSection == 'home' }" href="#home" @click="closeMenu">Home</a>
+                      </li>
                       <li><a href="/services" @click="closeMenu">Services</a></li>
                       <li><a href="/reviews" @click="closeMenu">Reviews</a></li>
                     </ul>
@@ -79,7 +80,8 @@
 
                   <div class="col-md-4">
                     <ul class="dropdown-links">
-                      <li><a href="/#properties" :class="{ menu_active: activeSection === 'properties' }" @click="closeMenu">Properties</a></li>
+                      <li><a href="/#properties" :class="{ menu_active: activeSection === 'properties' }"
+                          @click="closeMenu">Properties</a></li>
                       <li><a href="/blog" @click="closeMenu">Blog</a></li>
                       <li><a href="/career" @click="closeMenu">Career</a></li>
                     </ul>
@@ -111,19 +113,24 @@
     <div class="offcanvas-body justify-content-center d-flex flex-column">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a href="/#home" class="nav-link fs_one" :class="{ menu_active: activeSection == 'home' }" @click="handleMobileNav('home')">Home</a>
+          <a href="/#home" class="nav-link fs_one" :class="{ menu_active: activeSection == 'home' }"
+            @click="handleMobileNav('home')">Home</a>
         </li>
         <li class="nav-item">
-          <a href="/#about" class="nav-link fs_one" :class="{ menu_active: activeSection == 'about' }"  @click="handleMobileNav('about')">About</a>
+          <a href="/#about" class="nav-link fs_one" :class="{ menu_active: activeSection == 'about' }"
+            @click="handleMobileNav('about')">About</a>
         </li>
         <li class="nav-item">
-          <a href="/#properties" class="nav-link fs_one" :class="{ menu_active: activeSection == 'properties' }"  @click="handleMobileNav('properties')">Properties</a>
+          <a href="/#properties" class="nav-link fs_one" :class="{ menu_active: activeSection == 'properties' }"
+            @click="handleMobileNav('properties')">Properties</a>
         </li>
         <li class="nav-item">
-          <a href="/#location" class="nav-link fs_one" :class="{ menu_active: activeSection == 'location' }"  @click="handleMobileNav('location')">Location</a>
+          <a href="/#location" class="nav-link fs_one" :class="{ menu_active: activeSection == 'location' }"
+            @click="handleMobileNav('location')">Location</a>
         </li>
         <li class="nav-item">
-          <a href="/#faq" class="nav-link fs_one" :class="{ menu_active: activeSection == 'faq' }"  @click="handleMobileNav('faq')">FAQ</a>
+          <a href="/#faq" class="nav-link fs_one" :class="{ menu_active: activeSection == 'faq' }"
+            @click="handleMobileNav('faq')">FAQ</a>
         </li>
 
       </ul>
